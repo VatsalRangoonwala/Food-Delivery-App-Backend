@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "687b45ab7129fe1fd897287c"
+  },
+  "isActive": true,
+  "foodStoreIDFK": {
+    "$oid": "687b45ab7129fe1fd897287a"
+  },
+  "image": "wokOnstoe.jpg",
+  "imageType": "store",
+  "addedOn": "Sat Jul 19 2025 12:43:47 GMT+0530 (India Standard Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "687b45ab7129fe1fd897287d"
+  },
+  "isActive": true,
+  "foodStoreIDFK": {
+    "$oid": "687b45ab7129fe1fd897287a"
+  },
+  "image": "WOK-ON-stoe.jpg",
+  "imageType": "store",
+  "addedOn": "Sat Jul 19 2025 12:43:47 GMT+0530 (India Standard Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "687b45ab7129fe1fd897287e"
+  },
+  "isActive": true,
+  "foodStoreIDFK": {
+    "$oid": "687b45ab7129fe1fd897287a"
+  },
+  "image": "WOK-ON-FiREmenu1.jpg",
+  "imageType": "menu",
+  "addedOn": "Sat Jul 19 2025 12:43:47 GMT+0530 (India Standard Time)",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "687b45ab7129fe1fd897287f"
+  },
+  "isActive": true,
+  "foodStoreIDFK": {
+    "$oid": "687b45ab7129fe1fd897287a"
+  },
+  "image": "WOK-ON-FiREmenu2.jpg",
+  "imageType": "menu",
+  "addedOn": "Sat Jul 19 2025 12:43:47 GMT+0530 (India Standard Time)",
+  "__v": 0
+}]

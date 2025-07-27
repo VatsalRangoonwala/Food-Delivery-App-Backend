@@ -1,0 +1,25 @@
+var mongoose =require('mongoose');
+foodItemRatingSchema=mongoose.Schema({
+    rating:{
+       type:String
+    },
+    review:{
+       type:String
+    },
+    foodItemIDFK:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'foodItemMaster',
+    },
+    userIDFK:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'userMaster'
+    },             
+    isActive:{
+        type:Boolean,
+        default:true
+    },
+    addedOn:{
+        type:String
+    }
+});
+module.exports=mongoose.model("foodItemRatingMaster",foodItemRatingSchema);

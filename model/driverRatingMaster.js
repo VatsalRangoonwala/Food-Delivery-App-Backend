@@ -1,0 +1,28 @@
+var mongoose =require('mongoose');
+driverRatingSchema=mongoose.Schema({
+    rating:{
+       type:String
+    },
+    review:{
+       type:String
+    },
+    driverIdFK:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'driverMaster',
+    },
+    userIDKF:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'userMaster'
+    },          
+    addedDate:{
+        type:String
+    },   
+    isactive:{
+        type:Boolean,
+        default:true
+    },
+    addedOn:{
+        type:String
+    }
+});
+module.exports=mongoose.model("driverRatingMaster",driverRatingSchema);

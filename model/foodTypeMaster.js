@@ -1,0 +1,20 @@
+var mongoose =require('mongoose');
+foodTypeSchema=mongoose.Schema({
+    type:{
+       type:String
+    },
+    pinImage:{
+       type:String
+    },
+    image:{
+        type:String
+    },   
+    isactive:{
+        type:Boolean,
+        default:true
+    },
+    addedOn:{
+        type:String
+    }
+});
+module.exports=mongoose.model("foodTypeMaster",foodTypeSchema);

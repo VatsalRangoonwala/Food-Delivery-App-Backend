@@ -1,0 +1,41 @@
+var mongoose=require('mongoose');
+storeSchema=mongoose.Schema({
+    storeName:{
+        type:String
+    },
+    location:{
+        type:String
+    },
+    storeAddress:{
+        type:String
+    },
+    storeImage:{
+        type:String
+    },
+    contactNo:{
+        type:String
+    },
+    areaIDFK:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'areaMaster',
+    },
+    timming:{
+        type:String
+    },
+    vegNonveg:{
+        type:String
+    },
+    isactive:{
+        type:Boolean,
+        default:true
+    },
+    isDeleted:{
+        type:Boolean,
+        default:true
+    },
+    addedOn:{
+        type:String
+    },
+   
+});
+module.exports=mongoose.model("foodStoreMaster",storeSchema);

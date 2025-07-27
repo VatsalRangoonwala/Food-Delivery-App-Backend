@@ -1,0 +1,27 @@
+var mongoose=require('mongoose');
+addressSchema=mongoose.Schema({    
+    address:{
+        type:String
+    },
+    userIDFK:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'userMaster'
+    },
+    cityName:{
+        type:String
+    },
+    areaName:{
+        type:String
+    },
+    isdefault:{
+        type:Boolean
+    },
+    isactive:{
+        type:Boolean,
+        default:true
+    },
+    addedOn:{
+        type:String
+    }
+});
+module.exports=mongoose.model("addressMaster",addressSchema);

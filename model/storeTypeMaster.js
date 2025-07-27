@@ -1,0 +1,22 @@
+var mongoose =require('mongoose');
+storeTypeSchema=mongoose.Schema({
+    foodtypeIdFK:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'foodTypeMaster',
+    },
+    foodstoreIdFK:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'foodStoreMaster',
+    },
+    isdisplay:{
+        type:Boolean
+    },   
+    isactive:{
+        type:Boolean,
+        default:true
+    },
+    addedOn:{
+        type:String
+    }
+});
+module.exports=mongoose.model("storeTypeMaster",storeTypeSchema);

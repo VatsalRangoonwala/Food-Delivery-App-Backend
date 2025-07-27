@@ -1,0 +1,29 @@
+var mongoose=require('mongoose')
+driverSchema= mongoose.Schema({
+    driverName:{
+        type:String
+    },
+    email:{
+        type:String
+    },
+    mobile:{
+        type:String
+    },
+    gender:{
+        type:String
+    },
+    documents:{
+        type:String
+    },
+    dob:{
+        type:String
+    },
+    isActive:{
+        type:Boolean,
+        default:true
+    },
+    addedOn:{
+        type:String
+    }
+});
+module.exports=mongoose.model('driverMaster',driverSchema);

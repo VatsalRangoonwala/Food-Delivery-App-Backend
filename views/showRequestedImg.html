@@ -1,0 +1,215 @@
+<%- include('./include/header.html')%>
+
+<style>
+  .container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  .container img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .container .btn {
+    position: absolute;
+    top: 10%;
+    left: 87%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    /* background-color: rgb(9, 7, 7); */
+    color: rgb(255, 255, 255);
+    font-size: 13px;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10%;
+    text-align: center;
+   
+  }
+  
+</style>
+<div class="app-content content">
+  <div class="content-wrapper">
+    <div class="content-header row">
+      <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
+        <h3 class="content-header-title mb-0 d-inline-block">Gallery Media </h3>
+        <div class="row breadcrumbs-top d-inline-block">
+          <div class="breadcrumb-wrapper col-12">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/admin">Home</a>
+              </li>
+              <li class="breadcrumb-item"><a href="#">Requested Images</a>
+              </li>
+              <li class="breadcrumb-item active">Gallery Media 
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="content-header-right col-md-4 col-12">
+        <div class="btn-group float-md-right">
+          <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon-settings mr-1"></i>Action</button>
+          <div class="dropdown-menu arrow"><a class="dropdown-item" href="#"><i class="fa fa-calendar mr-1"></i> Calender</a><a class="dropdown-item" href="#"><i class="fa fa-cart-plus mr-1"></i> Cart</a><a class="dropdown-item" href="#"><i class="fa fa-life-ring mr-1"></i> Support</a>
+            <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fa fa-cog mr-1"></i> Settings</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-body">
+
+<!-- Image grid -->
+<section id="image-gallery" class="card">
+<div class="card-header">
+<h3 class="card-title"><b>User Requested Images</b></h3>
+<a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+    <div class="heading-elements">
+      <ul class="list-inline mb-0">
+          <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+          <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+          <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+          <li><a data-action="close"><i class="ft-x"></i></a></li>
+      </ul>
+  </div>
+</div>
+<div class="card-content">
+  <div class="card-body">
+      
+</div>
+
+<div class="card-body  my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+  <div class="row">
+    
+      <%
+      ReqimgData.forEach(function(key){ %>
+      
+    <figure class="col-lg-4 col-md-6 col-12" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+      <a href="/upload/imgGallery/<%=key.Image%>" itemprop="contentUrl" data-size="900x500">
+        <div class="container">
+          <img class="img-thumbnail img-fluid" src="/upload/imgGallery/<%=key.Image%>" itemprop="thumbnail"  alt="Image description"/>
+        
+         <!-- <button class="btn">Button</button> -->
+          <a href=""  data-toggle="modal" data-target="#danger<%= key._id;%>" class="btn btn-icon btn-brown mr-1">  <i class="fa fa-times-circle"></i></a>
+        </div>
+      </a>
+      <br/>
+      <!-- <center>
+      <a href="" class="btn btn-icon btn-outline-instagram mr-1"><i class="fa fa-check-circle"></i></a>
+    </center> -->
+    </figure>
+
+
+    
+  </button>
+
+    <% }); %>
+   
+  </div>
+ 
+</div>
+
+
+<!--/ Image grid -->
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader-active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+</div>
+<!--/ PhotoSwipe -->
+</section>
+<!--/ Image grid -->
+
+
+    </div>
+  </div>
+</div>
+
+<% ReqimgData.forEach(function(key){ %>
+  <div class="modal fade text-left" id="danger<%= key._id;%>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-danger white">
+      <h4 class="modal-title white" id="myModalLabel10">Are you sure!</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      </div>   
+      <form action="/admin/deletereqimg" method="post">
+        <input type="hidden" name="id" value="<%=key._id%>"/>
+        <input type="hidden" name="foodstoreIdFK" value="<%=key.foodstoreIdFK._id%>"/>
+      <div class="modal-footer">
+      <button type="button" class="btn grey btn-outline-secondary" data-dismiss="modal">No,cancel</button>
+      <button type="submit" class="btn btn-outline-danger">delete it</button>
+      </div>
+    </form>
+    </div>
+    </div>
+  </div>
+  <% }); %>
+
+  <%- include('./include/footer.html')%>
+
+  

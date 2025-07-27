@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "687b45bd7129fe1fd897288e"
+  },
+  "isactive": true,
+  "foodtypeIdFK": {
+    "$oid": "687b43b47129fe1fd8972874"
+  },
+  "foodstoreIdFK": {
+    "$oid": "687b45ab7129fe1fd897287a"
+  },
+  "addedOn": "Sat Jul 19 2025 12:44:05 GMT+0530 (India Standard Time)",
+  "__v": 0
+}]

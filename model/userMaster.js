@@ -1,0 +1,26 @@
+var mongoose =require('mongoose');
+userSchema=mongoose.Schema({
+    username:{
+        type:String
+    },
+    emailid:{
+        type:String
+    },
+    address:{
+        type:String
+    },
+    mobileno:{
+        type:String
+    },
+    profile:{
+        type:String
+    },
+    isactive:{
+        type:Boolean,
+        default:true
+    },
+    addedOn:{
+        type:String
+    }
+});
+module.exports=mongoose.model("userMaster",userSchema);

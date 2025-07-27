@@ -1,0 +1,280 @@
+<%- include('./include/header.html')%>
+
+  <div class="app-content content">
+    <div class="content-wrapper">
+      <div class="content-header row">
+        <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
+          <h3 class="content-header-title mb-0 d-inline-block">Food store</h3>
+          <div class="row breadcrumbs-top d-inline-block">
+            <div class="breadcrumb-wrapper col-12">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/admin">Home</a>
+                </li>
+                <!-- <li class="breadcrumb-item"><a href="#">Form Layouts</a>
+                </li>
+                <li class="breadcrumb-item active">Horizontal Forms
+                </li> -->
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="content-header-right col-md-4 col-12">
+          <div class="btn-group float-md-right">
+            <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon-settings mr-1"></i>Action</button>
+            <div class="dropdown-menu arrow"><a class="dropdown-item" href="#"><i class="fa fa-calendar mr-1"></i> Calender</a><a class="dropdown-item" href="#"><i class="fa fa-cart-plus mr-1"></i> Cart</a><a class="dropdown-item" href="#"><i class="fa fa-life-ring mr-1"></i> Support</a>
+              <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fa fa-cog mr-1"></i> Settings</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-body">
+        <!-- Basic form layout section start -->
+<section id="horizontal-form-layouts">
+  <div class="row">
+      <div class="col-md-12">
+          <div class="card">
+              <div class="card-header">
+                  <!-- <h4 class="card-title" id="horz-layout-basic">Project Info</h4> -->
+                  <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                  <div class="heading-elements">
+                      <ul class="list-inline mb-0">
+                          <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                          <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                          <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                          <li><a data-action="close"><i class="ft-x"></i></a></li>
+                      </ul>
+                  </div>
+              </div>
+              <div class="card-content collpase show">
+                  <div class="card-body">
+                    <%if(operation=="insert"){%>
+                      <form class="form form-horizontal"  method="post" enctype="multipart/form-data">
+                          <div class="form-body">
+                              <h4 class="form-section"><i class="ft-user"></i> Add food store</h4>
+                              <div class="form-group row">
+                                  <label class="col-md-3 label-control">Store Name</label>
+                                  <div class="col-md-9">
+                                      <input type="text" id="storeName" class="form-control" placeholder="Store Name" name="storeName">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label class="col-md-3 label-control">Location</label>
+                                  <div class="col-md-9">
+                                      <input type="text" id="location" class="form-control" placeholder="location" name="location">
+                                  </div>
+                              </div>
+
+                              <div class="form-group row">
+                                  <label class="col-md-3 label-control">Address</label>
+                                  <div class="col-md-9">
+                                      <textarea id="storeAddress" rows="5" class="form-control" placeholder="storeAddress" name="storeAddress"></textarea>
+                                  </div>
+                              </div>
+
+                              <div class="form-group row">
+                                  <label class="col-md-3 label-control">Contact Number</label>
+                                  <div class="col-md-9">
+                                      <input type="text" id="contactNo" class="form-control" placeholder="contact No" name="contactNo">
+                                  </div>
+                              </div>
+
+                              <div class="form-group row">
+                                <label class="col-md-3 label-control">Area Name</label>
+                                <div class="col-md-9">
+                                  <select name="areaIDFK" class="form-control">
+                                      <option>select city</option>
+                                      <%for (let area of areaData){ %>
+                                          <option value="<%= area._id %>">
+            
+                                              <%= area.areaName %>
+                                          </option>
+                                          <% } %>
+                                  </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                              <label class="col-md-3 label-control">Food type</label>
+                              <div class="col-md-9">
+                                  <select id="vegNonveg" name="vegNonveg" class="form-control">
+                                      <option value="none" selected="" disabled="">selected</option>
+                                      <option value="Veg">Veg</option>
+                                      <option value="Nonveg">Nonveg</option>
+                                      
+                                  </select>
+                              </div>
+                          </div>
+
+
+                            <div class="form-group row">
+                                <label class="col-md-3 label-control">To</label>
+                                <div class="col-md-3">
+                                    <input type="time" id="to"  class="form-control" name="to" placeholder="Timming"/>
+                                    
+                                </div>
+
+                                <label class="col-md-2 label-control">From</label>
+                                <div class="col-md-3">
+                                    <input type="time" id="from"  class="form-control" name="from" placeholder="Timming"/>
+                                    
+                                </div>
+                            </div>
+
+
+                            <!-- <input type="hidden" value="<%=foodstoreData%>" name="_id"/>  -->
+
+                              <h4 class="form-section"><i class="ft-clipboard"></i>Images</h4>
+                              <input type="hidden" value="gimag" id="imggallery" name="imggallery">
+                              <div class="form-group row">
+                                <label class="col-md-3 label-control">Store Images</label>
+                                <div class="col-md-9">
+                                    <input type="file" id="image" multiple placeholder="Image" name="image">
+                                </div>
+                            </div> 
+
+                            <div class="form-group row">
+                              <label class="col-md-3 label-control">Menu Images</label>
+                              <div class="col-md-9">
+                                  <input type="file" id="menu"  placeholder="Image" name="menu" multiple>
+                              </div>
+                          </div> 
+                          
+
+                          <div class="form-group row">
+                            <label class="col-md-3 label-control">Main store Images</label>
+                            <div class="col-md-9">
+                                <input type="file" id="storeImage"  placeholder="Image" name="storeImage">
+                            </div>
+                        </div> 
+
+                           
+              
+                          </div>
+
+                        
+
+                          <div class="form-group row">
+                            <label class="col-md-3 label-control"></label>
+                            <button type="button" class="btn btn-warning mr-1">
+                              <i class="ft-x"></i> Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                              <i class="fa fa-check-square-o"></i> Save
+                            </button>
+      
+                          </div>
+                      </form>
+                      <%}else{%>
+
+                        <form class="form form-horizontal" action="/admin/updateReqStoreEJS" method="post">
+                          <div class="form-body">
+                              <h4 class="form-section"><i class="ft-user"></i> Add food store</h4>
+                              
+                                <div class="form-group row">
+                                  <input type="hidden" name="id" value="<%=reqstoreData._id%>"/>
+                                    <label class="col-md-3 label-control">Name</label>
+                                    <div class="col-md-9">
+                                      <select name="userIDFK" class="form-control">
+                                        <option>select user</option>
+                                        <%for (let user of userData){ %>
+                                            <option value="<%= user._id %>"<%
+                                              if(user._id.toString()==reqstoreData.userIDFK){ %>
+                                              selected
+                                              <% }%>>
+              
+                                                <%= user.username %>
+                                            </option>
+                                            <% } %>
+                                    </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                  <label class="col-md-3 label-control">Store Name</label>
+                                  <div class="col-md-9">
+                                      <input type="text" id="storeName" class="form-control" placeholder="Store Name" 
+                                      name="storeName" value="<%=reqstoreData.storeName%>">
+                                  </div>
+                              </div>
+                              <div class="form-group row">
+                                  <label class="col-md-3 label-control">Location</label>
+                                  <div class="col-md-9">
+                                      <input type="text" id="location" class="form-control" placeholder="location" 
+                                      name="location" value="<%=reqstoreData.location%>">
+                                  </div>
+                              </div>
+
+                              <div class="form-group row">
+                                  <label class="col-md-3 label-control">Address</label>
+                                  <div class="col-md-9">
+                                      <textarea id="storeAddress" class="form-control" 
+                                      placeholder="Address" name="storeAddress"><%=reqstoreData.address%>
+                                    </textarea>
+                                  </div>
+                              </div>
+
+                              <div class="form-group row">
+                                  <label class="col-md-3 label-control">Contact Number</label>
+                                  <div class="col-md-9">
+                                      <input type="text" id="contactNo" class="form-control" 
+                                      placeholder="contact No" name="contactNo" value="<%=reqstoreData.contactNo%>">
+                                  </div>
+                              </div>
+
+                              <div class="form-group row">
+                                <label class="col-md-3 label-control">Area Name</label>
+                                <div class="col-md-9">
+                                  <select name="areaIDFK" class="form-control">
+                                      <option>select Area</option>
+                                      <%for (let area of areaData){ %>
+                                          <option value="<%= area._id %>"<%
+                                            if(area._id.toString()==reqstoreData.areaIDFK){ %>
+                                            selected
+                                            <% }%>>
+            
+                                              <%= area.areaName %>
+                                          </option>
+                                          <% } %>
+                                  </select>
+                                </div>
+                            </div>
+
+                          
+                            <div class="form-group row">
+                              <label class="col-md-3 label-control">To</label>
+                              <div class="col-md-3">
+                                  <input type="time" id="to"  class="form-control" name="to" placeholder="Timming" value="<%=reqstoreData.to%>"/>
+                                  
+                              </div>
+
+                              <label class="col-md-2 label-control">From</label>
+                              <div class="col-md-3">
+                                  <input type="time" id="from"  class="form-control" name="from" placeholder="Timming" value="<%=reqstoreData.from%>"/>
+                                  
+                              </div>
+                          </div>
+
+                            
+                          <div class="form-group row">
+                            <label class="col-md-3 label-control"></label>
+                            <button type="button" class="btn btn-warning mr-1">
+                              <i class="ft-x"></i> Cancel
+                            </button>
+                            <button type="submit" class="btn btn-primary">
+                              <i class="fa fa-check-square-o"></i> Save
+                            </button>
+      
+                          </div>
+                      </form>
+                      <%}%>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+   
+</section>
+<!-- // Basic form layout section end -->
+      </div>
+    </div>
+  </div>
+<%- include('./include/footer.html')%>

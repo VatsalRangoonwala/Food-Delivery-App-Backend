@@ -1,0 +1,326 @@
+<%- include('./include/header.html')%>
+
+<!-- ////////////////////////////////////////////////////////////////////////////-->
+
+
+
+<!-- main contenet -->
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+            <!-- Sales stats -->
+            <section id="icon-section-bg-gradient">
+               
+                <div class="row">
+                    <% if(sess.user_type==="Admin") { %>
+                    <div class="col-xl-6 col-lg-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                            
+                                        <div class="media align-items-stretch">
+                                            <div class="p-2 bg-gradient-x2-blue-grey text-white media-body text-left rounded-left">
+                                                <h5 class="text-white text-bold-700">Users</h5>
+                                                <h5 class="text-white text-bold-600 mb-0"><%= data['usercount']%></h5>
+                                            </div>
+                                            <div class="p-2 text-center bg-blue-grey bg-darken-2  rounded-right">
+                                                <i class="fa fa-users font-large-2 text-white"></i>
+                                            </div>
+                                        </div>
+                                                      
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <% } %> 
+
+                    <% if(sess.user_type==="Admin") { %>
+                    <div class="col-xl-6 col-lg-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="media align-items-stretch">
+                                    <div class="p-2 bg-gradient-x-teal text-white media-body text-left rounded-left">
+                                        <h5 class="text-white text-bold-700">Food Store</h5>
+                                        <h5 class="text-white text-bold-600 mb-0"><%= data['foodstorecount']%></h5>
+                                    </div>
+                                    <div class="p-2 text-center bg-teal bg-darken-4 rounded-right">
+                                        <i class="las la-store font-large-2 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %> 
+
+                    <% if(sess.user_type==="StoreOwner") { %>
+                        <div class="col-xl-6 col-lg-6 col-12">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="media align-items-stretch">
+                                        <div class="p-2 bg-gradient-x-purple text-white media-body text-left rounded-left">
+                                            <h5 class="text-white text-bold-700">Food Item</h5>
+                                            <h5 class="text-white text-bold-600 mb-0"><%= data1['fooditem']%></h5>
+                                        </div>
+                                        <div class="p-2 text-center bg-purple bg-darken-4 rounded-right">
+                                            <i class="las la-store font-large-2 text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %> 
+
+                      
+
+                            <% if(sess.user_type==="Admin") { %>
+                    <div class="col-xl-6 col-lg-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="media align-items-stretch">
+                                    <div class="p-2 bg-gradient-x-pink text-white media-body text-left rounded-left">
+                                        <h5 class="text-white text-bold-700">Food Type</h5>
+                                        <h5 class="text-white text-bold-600 mb-0"><%= data['foodtypecount']%></h5>
+                                    </div>
+                                    <div class="p-2 text-center bg-pink bg-darken-2  rounded-right">
+                                        <i class="fas fa-cookie font-large-2 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %> 
+
+
+                     <% if(sess.user_type==="Admin") { %>
+                    <div class="col-xl-6 col-lg-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="media align-items-stretch">
+                                    <div class="p-2 bg-gradient-x-brown text-white media-body text-left rounded-left">
+                                        <h5 class="text-white text-bold-700">Request store</h5>
+                                        <h5 class="text-white text-bold-600 mb-0"><%= data['reqstorecount']%></h5>
+                                    </div>
+                                    <div class="p-2 text-center bg-brown bg-darken-1  rounded-right">
+                                        <i class="fa fa-street-view font-large-2 text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <% } %> 
+
+
+
+                
+
+
+                    <% if(sess.user_type==="StoreOwner") { %>
+                        <div class="col-xl-6 col-lg-6 col-12">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="media align-items-stretch">
+                                        <div class="p-2 bg-gradient-x-brown text-white media-body text-left rounded-left">
+                                            <h5 class="text-white text-bold-700">Store Type</h5>
+                                            <h5 class="text-white text-bold-600 mb-0"><%= data1['storetype']%></h5>
+                                        </div>
+                                        <div class="p-2 text-center bg-gradient-x-brown bg-darken-4 rounded-right">
+                                            <i class="las la-store font-large-2 text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %> 
+       
+
+                    <% if(sess.user_type==="StoreOwner") { %>
+                        <div class="col-xl-6 col-lg-6 col-12">
+                            <div class="card">
+                                <div class="card-content">
+                                    <div class="media align-items-stretch">
+                                        <div class="p-2 bg-gradient-x-pink text-white media-body text-left rounded-left">
+                                            <h5 class="text-white text-bold-700">Request Images</h5>
+                                            <h5 class="text-white text-bold-600 mb-0"><%= data1['reqimg']%></h5>
+                                        </div>
+                                        <div class="p-2 text-center bg-pink bg-darken-1  rounded-right">
+                                            <i class="fa fa-street-view font-large-2 text-white"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <% } %> 
+
+
+
+    
+
+                </div>
+            </section>
+            <% if(sess.user_type==="Admin") { %>
+                <section id="basic-form-layouts">
+                    <div class="row match-height">
+
+                       
+                            <div class="col-md-6">
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title" id="basic-layout-form"><b>FoodStore Rating</b></h4>
+                                        <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+
+                                    </div>
+                                    <div class="card-content collapse show">
+                                        <div class="card-body">
+
+                                            <table class="table table-striped table-bordered">
+                                                <thead>
+                                                  <tr>
+                                                    <th>No</th>
+                                                      <th>Details</th>
+                                                      <th>Store Review</th>                                                     
+                                                     
+                                                      
+                                                  </tr>
+                                              </thead>
+                                              <tbody>
+                                                <%
+                                                var no = 1;
+                                                data['foodrating'].forEach(function(key){ %>
+                                                    <tr>
+                                                        <td><%= no++ %></td>
+                                                        <td><b>user name:</b><%= key.user_value %><br>
+                                                        <b>Store Name:</b><%= key.store_value %></td>
+                                                        
+                                                        <td><%= key.review %></td>
+                                                    </tr>
+                                                    <% }); %>
+                                                </tbody>                     
+                                              </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h4 class="card-title" id="basic-layout-form"><b>Requested Image</b></h4>
+                                        <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+
+                                    </div>
+                                    <div class="card-content collapse show">
+                                        <div class="card-body">
+
+                                            <table class="table table-striped table-bordered">
+                                                <thead>
+                                                  <tr>
+                                                    <th>No</th>
+                                                    <th>Info</th>
+                                                    <th>Image</th>
+                                                      
+                                                  </tr>
+                                              </thead>
+                                              <tbody>
+                                                <%
+                                                var no = 1;
+                                                data['reqimg'].forEach(function(key){ %>
+                                                <tr>
+                                                    <td><%= no++ %></td>
+                                                    <td><b>user name:</b><%= key.user_value %><br>
+                                                    <b>Store Name:</b><%= key.store_value %></td>
+                                                    
+                                                    <td>
+                                                      <img style="height:150px;width:150px;"src='/upload/imgGallery/<%=key.Image%>'/>
+                                                    </td>
+                                                </tr>
+                                                <% }); %>
+                          
+                                                </tbody>                     
+                                              </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                       
+                     
+                    </div>
+
+
+                </section> 
+                <% } %> 
+              
+            </div>       
+            
+            <% if(sess.user_type==="Admin") { %>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title"><b>Show Request Store</b></h4>
+                            <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                            <div class="heading-elements">
+                                <ul class="list-inline mb-0">
+                                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                                    <li><a data-action="close"><i class="ft-x"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-content collapse show">
+                            <div class="card-body card-dashboard">
+                               
+                                <table class="table table-striped table-bordered">
+                                  <thead>
+                                    <tr>
+                                      <th>No</th>
+                                        <th>Store nformation</th>                            
+                                        <th>user Name</th>
+                                       
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                  <%
+                                  var no = 1;
+                                  data['reqstore'].forEach(function(key){ %>
+                                  <tr>
+                                    <td><%= no++; %></td>
+                                      <td><b>store Name :</b> <%= key.storeName; %> <br>                            
+                                        <b>Timming :</b> <%= key.timming; %><br>
+                                        <b>Contact No:</b> <%= key.contactNo; %> <br>                         
+                                      <b>Address :</b> <%= key.address; %> <br>
+                                        <b>Location :</b> <%= key.location; %><br>
+                                        <b>Area : </b> <%= key.area_value; %> 
+                                      </td>
+                                      <td><%=key.user_value; %></td>
+                                                                
+                                  
+                                  </tr>
+                                  <% }); %>
+            
+                                  </tbody>                     
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            <% } %> 
+                       
+                       
+          
+
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////////////////////-->
+
+<%- include('./include/footer.html')%>

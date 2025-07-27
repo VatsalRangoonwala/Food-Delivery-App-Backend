@@ -1,0 +1,227 @@
+<%- include('./include/header.html')%>
+
+<div class="app-content content">
+  <div class="content-wrapper">
+    <div class="content-header row">
+      <div class="content-header-left col-md-8 col-12 mb-2 breadcrumb-new">
+        <h3 class="content-header-title mb-0 d-inline-block">Drivers Information</h3>
+        <div class="row breadcrumbs-top d-inline-block">
+          <div class="breadcrumb-wrapper col-12">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a>
+              </li>
+              <li class="breadcrumb-item"><a href="#">Driver</a>
+              </li>
+              <li class="breadcrumb-item active">Add Driver
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="content-header-right col-md-4 col-12">
+        <div class="btn-group float-md-right">
+          <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"><i class="icon-settings mr-1"></i>Action</button>
+          <div class="dropdown-menu arrow"><a class="dropdown-item" href="#"><i class="fa fa-calendar mr-1"></i>
+              Calender</a><a class="dropdown-item" href="#"><i class="fa fa-cart-plus mr-1"></i> Cart</a><a
+              class="dropdown-item" href="#"><i class="fa fa-life-ring mr-1"></i> Support</a>
+            <div class="dropdown-divider"></div><a class="dropdown-item" href="#"><i class="fa fa-cog mr-1"></i>
+              Settings</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-body">
+      <!-- Basic form layout section start -->
+      <section id="horizontal-form-layouts">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-header">
+                <h4 class="card-title" id="horz-layout-basic">Driver Info</h4>
+                <a class="heading-elements-toggle"><i class="fa fa-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                  <ul class="list-inline mb-0">
+                    <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                    <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                    <li><a data-action="close"><i class="ft-x"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="card-content collpase show">
+                <div class="card-body">
+                  <%if(operation=="insert"){%>
+                  <form class="form form-horizontal" method="post" action="/admin/addDriverEJS"
+                    enctype="multipart/form-data">
+                    <div class="form-body">
+                      <h4 class="form-section"><i class="ft-user"></i> Add Driver</h4>
+                      <input type="hidden" value="driver" id="documentimg" name="documentimg">
+                      <div class="form-group row">
+                        <label class="col-md-3 label-control" for="projectinput1">Name</label>
+                        <div class="col-md-9">
+                          <input type="text" id="driverName" class="form-control" placeholder="Name" name="driverName">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 label-control">email</label>
+                      <div class="col-md-9">
+                        <input type="text" id="email" class="form-control" placeholder="Email" name="email">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 label-control">Mobile</label>
+                      <div class="col-md-9">
+                        <input type="text" id="mobile" class="form-control" placeholder="Mobile" name="mobile">
+                      </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                      <label class="col-md-3 label-control">Gender</label>
+                      <div class="col-md-9">
+                        <div class="input-group">
+                          <div class="d-inline-block custom-control custom-radio mr-1">
+                            <input type="radio" name="gender" class="custom-control-input" id="female" value="Female">
+                            <label class="custom-control-label" for="female">Female</label>
+                          </div>
+                          <div class="d-inline-block custom-control custom-radio">
+                            <input type="radio" name="gender" class="custom-control-input" id="male" value="Male">
+                            <label class="custom-control-label" for="male">Male</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 label-control">Documents</label>
+                      <div class="col-md-9">
+                        <label id="projectinput8" class="file center-block">
+                          <input type="file" id="documents" name="documents">
+                          <span class="file-custom"></span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 label-control">DOB</label>
+                      <div class="col-md-9">
+                        <input type="text" id="dob" class="form-control" placeholder="dob" name="dob">
+                      </div>
+                    </div>
+
+                    <!-- <div class="form-actions center"> -->
+
+                    <div class="form-group row">
+                      <label class="col-md-3 label-control"></label>
+                      <button type="button" class="btn btn-warning mr-1">
+                        <i class="ft-x"></i> Cancel
+                      </button>
+                      <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-check-square-o"></i> Save
+                      </button>
+
+                    </div>
+                  </form>
+                  <% }else{%>
+                    <form class="form form-horizontal" method="post" action="/admin/updateDriverEJS"
+                    enctype="multipart/form-data">
+                    <div class="form-body">
+                      <h4 class="form-section"><i class="ft-user"></i> Edit Driver</h4>
+                      <input type="hidden" value="driver" id="documentimg" name="documentimg">
+                      <div class="form-group row">
+                        <input type="hidden" name="id" value="<%=driverData._id%>">
+                        <label class="col-md-3 label-control" for="projectinput1">Name</label>
+                        <div class="col-md-9">
+                          <input type="text" id="driverName" class="form-control" placeholder="Name" name="driverName" value="<%=driverData.driverName%>">
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 label-control">email</label>
+                      <div class="col-md-9">
+                        <input type="text" id="email" class="form-control" placeholder="Email" name="email" value="<%=driverData.email%>">
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 label-control">Mobile</label>
+                      <div class="col-md-9">
+                        <input type="text" id="mobile" class="form-control" placeholder="Mobile" name="mobile" value="<%=driverData.mobile%>">
+                      </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                      <label class="col-md-3 label-control">Gender</label>
+                      <div class="col-md-9">
+                        <div class="input-group">
+                          <div class="d-inline-block custom-control custom-radio mr-1">
+                            <input type="radio" name="gender" class="custom-control-input" id="female" value="Female" <%
+                            if(driverData.gender == 'Female'){ %>
+                            checked
+                            <% }%>
+                            >
+                            <label class="custom-control-label" for="female">Female</label>
+                          </div>
+                          <div class="d-inline-block custom-control custom-radio">
+                            <input type="radio" name="gender" class="custom-control-input" id="male" value="Male" <%
+                            if(driverData.gender == 'Male'){ %>
+                            checked
+                            <% }%>
+                            >
+                            <label class="custom-control-label" for="male">Male</label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 label-control">Documents</label>
+                      <div class="col-md-9">
+                        <label id="projectinput8" class="file center-block">
+                          <input type="file" id="documents" name="documents" value="<%=driverData.documents%>">
+                          <span class="file-custom"></span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="form-group row">
+                      <label class="col-md-3 label-control">DOB</label>
+                      <div class="col-md-9">
+                        <input type="date" id="dob" class="form-control" placeholder="dob" name="dob"  value="<%=driverData.dob%>">
+                      </div>
+                    </div>
+
+                    <!-- <div class="form-actions center"> -->
+
+                    <div class="form-group row">
+                      <label class="col-md-3 label-control"></label>
+                      <button type="button" class="btn btn-warning mr-1">
+                        <i class="ft-x"></i> Cancel
+                      </button>
+                      <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-check-square-o"></i> Update
+                      </button>
+
+                    </div>
+                  </form>
+                   <%} %>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    </section>
+    <!-- // Basic form layout section end -->
+  </div>
+</div>
+</div>
+<%- include('./include/footer.html')%>

@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "687b43b47129fe1fd8972874"
+  },
+  "isactive": true,
+  "type": "Chinese",
+  "pinImage": "home_cat_chinesse.jpg",
+  "image": "home_cat_chinesse.jpg",
+  "addedOn": "Sat Jul 19 2025 12:35:24 GMT+0530 (India Standard Time)",
+  "__v": 0
+}]
